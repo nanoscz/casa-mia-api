@@ -1,0 +1,53 @@
+{
+  "name": "casa-mia-api",
+  "version": "1.0.0",
+  "description": "Casa Mia API REST",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "standard",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:migrate:undo",
+    "migrations:delete": "sequelize-cli db:migrate:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanoscz/casa-mia-api.git"
+  },
+  "author": "Fernando Castillo Torrico <fernandocto.scz@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nanoscz/casa-mia-api/issues"
+  },
+  "homepage": "https://github.com/nanoscz/casa-mia-api#readme",
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "chalk": "^3.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/sequelize": "^4.28.13",
+    "nodemon": "^2.0.16",
+    "standard": "^17.0.0"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "standard": {
+    "ignore": [
+      "**/out/",
+      "/lib/select2/",
+      "/lib/ckeditor/",
+      "tmp.js"
+    ]
+  }
+}

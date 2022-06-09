@@ -1,29 +1,23 @@
 const boom = require('@hapi/boom')
 const { models } = require('../libs/sequelize')
 
-class SellerService {
+class CustomerService {
   async find () {
-    const rta = await models.Seller.findAll({
-      include: ['user']
-    })
+    const rta = await models.Customer.findAll()
     return rta
   }
 
   async findOne (id) {
-    const seller = await models.Seller.findByPk(id, {
-      include: ['user']
-    })
-    if (!seller) {
-      throw boom.notFound('Seller not found')
+    const rta = await models.Customer.findByPk(id)
+    if (!rta) {
+      throw boom.notFound('Customer not found')
     }
-    return seller
+    return rta
   }
 
   async create (data) {
-    const newSeller = await models.Seller.create(data, {
-      include: ['user']
-    })
-    return newSeller
+    const rta = await models.Customer.create(data)
+    return rta
   }
 
   async update (id, changes) {
@@ -39,4 +33,4 @@ class SellerService {
   }
 }
 
-module.exports = SellerService
+module.exports = CustomerService

@@ -5,6 +5,7 @@ const { Project, ProjectSchema } = require('./project.model')
 const { Lot, LotSchema } = require('./lot.model')
 const { Modality, ModalitySchema } = require('./modality.model')
 const { Sale, SaleSchema } = require('./sale.model')
+const { PaymentPlan, PaymentPlanSchema } = require('./payment-plan.model')
 
 function setupModels (sequelize) {
   User.init(UserSchema, User.config(sequelize))
@@ -14,6 +15,7 @@ function setupModels (sequelize) {
   Lot.init(LotSchema, Lot.config(sequelize))
   Modality.init(ModalitySchema, Modality.config(sequelize))
   Sale.init(SaleSchema, Sale.config(sequelize))
+  PaymentPlan.init(PaymentPlanSchema, PaymentPlan.config(sequelize))
 
   User.associate(sequelize.models)
   Seller.associate(sequelize.models)
@@ -21,6 +23,7 @@ function setupModels (sequelize) {
   Project.associate(sequelize.models)
   Lot.associate(sequelize.models)
   Sale.associate(sequelize.models)
+  PaymentPlan.associate(sequelize.models)
 }
 
 module.exports = setupModels

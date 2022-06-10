@@ -90,6 +90,10 @@ class Sale extends Model {
     this.belongsTo(models.Customer, { as: 'customer'})
     this.belongsTo(models.Lot, { as: 'lot'})
     this.belongsTo(models.Modality, { as: 'modality'})
+    this.hasOne(models.PaymentPlan, {
+      as: 'sale',
+      foreignKey: 'saleId'
+    })
   }
 
   static config (sequelize) {

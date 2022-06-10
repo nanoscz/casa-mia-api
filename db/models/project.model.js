@@ -22,7 +22,12 @@ const ProjectSchema = {
 }
 
 class Project extends Model {
-  static associate (models) { }
+  static associate (models) {
+    this.hasMany(models.Lot, {
+      as: 'lots',
+      foreignKey: 'projectId'
+    })
+  }
 
   static config (sequelize) {
     return {

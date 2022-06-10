@@ -47,6 +47,10 @@ const SellerSchema = {
 class Seller extends Model {
   static associate (models) {
     this.belongsTo(models.User, { as: 'user' })
+    this.hasMany(models.Sale, {
+      as: 'sale',
+      foreignKey: 'sellerId'
+    })
   }
 
   static config (sequelize) {

@@ -61,6 +61,10 @@ const LotSchema = {
 class Lot extends Model {
   static associate (models) {
     this.belongsTo(models.Project, { as: 'project' })
+    this.hasOne(models.Sale, {
+      as: 'sale',
+      foreignKey: 'lotId'
+    })
   }
 
   static config (sequelize) {

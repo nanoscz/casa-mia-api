@@ -23,6 +23,10 @@ const ModalitySchema = {
 
 class Modality extends Model {
   static associate (models) {
+    this.hasOne(models.Sale, {
+      as: 'sale',
+      foreignKey: 'modalityId'
+    })
   }
 
   static config (sequelize) {

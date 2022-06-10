@@ -5,6 +5,7 @@ const customerRouter = require('./customer.router')
 const projectRouter = require('./project.router')
 const LotRouter = require('./lot.router')
 const ModalityRouter = require('./modality.router')
+const SaleRouter = require('./sale.router')
 
 function routerApi (app) {
   const router = express.Router()
@@ -15,6 +16,7 @@ function routerApi (app) {
   router.use('/projects', projectRouter)
   router.use('/lots', LotRouter)
   router.use('/modalities', ModalityRouter)
+  router.use('/sales', SaleRouter)
 }
 
 module.exports = routerApi

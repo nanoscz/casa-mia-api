@@ -5,19 +5,23 @@ const validationHandler = require('../middlewares/validator.handler')
 const {
   getPaymentPlanSchema,
   createPaymentPlanSchema,
-  updatePaymentPlanSchema
+  updatePaymentPlanSchema,
+  queryPaymentPlanByLotSchema
 } = require('../schemas/payment-plan.schema')
 
 const router = express.Router()
 const service = new PaymentPlanService()
 
-router.get('/', async (req, res, next) => {
-  try {
-    res.json(await service.find())
-  } catch (error) {
-    next(error)
+router.get('/',
+  validationHandler(queryPaymentPlanByLotSchema, 'query'),
+  async (req, res, next) => {
+    try {
+      res.json(await service.find(req.query))
+    } catch (error) {
+      next(error)
+    }
   }
-})
+)
 
 router.get('/:id',
   validationHandler(getPaymentPlanSchema, 'params'),

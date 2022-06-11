@@ -6,6 +6,7 @@ const amount = Joi.number().integer()
 const paymentDate = Joi.date()
 const paidOut = Joi.boolean()
 const saleId = Joi.number().integer()
+const lotId = Joi.number().integer()
 
 const getPaymentPlanSchema = Joi.object({
   id: id.required()
@@ -27,4 +28,9 @@ const updatePaymentPlanSchema = Joi.object({
   saleId
 })
 
-module.exports = { getPaymentPlanSchema, createPaymentPlanSchema, updatePaymentPlanSchema }
+const queryPaymentPlanByLotSchema = Joi.object({
+  lotId,
+  paidOut: id
+})
+
+module.exports = { getPaymentPlanSchema, createPaymentPlanSchema, updatePaymentPlanSchema, queryPaymentPlanByLotSchema }

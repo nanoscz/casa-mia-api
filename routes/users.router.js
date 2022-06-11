@@ -48,7 +48,7 @@ router.post('/login',
     try {
       const body = req.body
       const user = await service.login(body)
-      res.status(201).json({message: 'Usuario logueado'})
+      res.status(201).json(user)
     } catch (error) {
       next(error)
     }

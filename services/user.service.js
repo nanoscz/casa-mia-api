@@ -38,9 +38,12 @@ class UserService {
   }
 
   async login(email, password) {
-    await models.User.findOne({ where: email}).then((user) => {
-      if(user) return user
-    })
+    const usr = await models.User.findOne({ where: email, password})
+    
+    if (!usr) {
+      throw boom.notFound('user not found')
+    }
+    return usr
   }
 }
 

@@ -36,6 +36,12 @@ class UserService {
     await user.destroy()
     return { id }
   }
+
+  async login(email, password) {
+    await models.User.findOne({ where: email}).then((user) => {
+      if(user) return user
+    })
+  }
 }
 
 module.exports = UserService

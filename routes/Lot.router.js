@@ -5,19 +5,22 @@ const validationHandler = require('../middlewares/validator.handler')
 const {
   getLotSchema,
   createLotSchema,
-  updateLotSchema
+  updateLotSchema,
+  queryLotSchema
 } = require('../schemas/lot.schema')
 
 const router = express.Router()
 const service = new LotService()
 
-router.get('/', async (req, res, next) => {
+router.get('/', validationHandler(queryLotSchema, 'query'),
+  async (req, res, next) => {
   try {
-    res.json(await service.find())
+    res.json(await service.find(req.query))
   } catch (error) {
     next(error)
   }
-})
+  }
+)
 
 router.get('/:id',
   validationHandler(getLotSchema, 'params'),

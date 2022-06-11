@@ -2,8 +2,24 @@ const boom = require('@hapi/boom')
 const { models } = require('../libs/sequelize')
 
 class LotService {
-  async find () {
-    const rta = await models.Lot.findAll()
+  async find (query) {
+
+    const options = {
+      where: {},
+      include: []
+    }
+
+    const { available } = query
+    if (available) {
+      options.where.available = available
+    }
+
+    const { projectId } = query
+    if (projectId) {
+      options.where.projectId = projectId
+    }
+
+    const rta = await models.Lot.findAll(options)
     return rta
   }
 

@@ -35,4 +35,9 @@ const updateLotSchema = Joi.object({
   projectId
 })
 
-module.exports = { getLotSchema, createLotSchema, updateLotSchema }
+const queryLotSchema = Joi.object({
+  available: id,
+  projectId
+})
+
+module.exports = { getLotSchema, createLotSchema, updateLotSchema, queryLotSchema }

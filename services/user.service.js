@@ -41,9 +41,10 @@ class UserService {
     const usr = await models.User.findOne({ where: email, password})
     
     if (!usr) {
-      throw boom.notFound('user not found')
+      return {throw: boom.notFound('user not found'),
+              msg: false}
     }
-    return usr
+    return {usr, msg: true}
   }
 }
 

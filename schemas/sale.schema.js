@@ -9,6 +9,7 @@ const sellerId = Joi.number().integer()
 const customerId = Joi.number().integer()
 const lotId = Joi.number().integer()
 const modalityId = Joi.number().integer()
+const include = Joi.boolean()
 
 const getSaleSchema = Joi.object({
   id: id.required()
@@ -36,4 +37,13 @@ const updateSaleSchema = Joi.object({
   modalityId
 })
 
-module.exports = { getSaleSchema, createSaleSchema, updateSaleSchema }
+const querySaleSchame = Joi.object({
+  status,
+  modalityId,
+  sellerId,
+  startDate: date,
+  endDate: date,
+  include
+})
+
+module.exports = { getSaleSchema, createSaleSchema, updateSaleSchema, querySaleSchame }

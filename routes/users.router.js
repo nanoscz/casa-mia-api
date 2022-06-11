@@ -44,7 +44,7 @@ router.post('/',
 
 router.post('/login',
   validatorHandler(loginUserSchema, 'body'),
-  async(req, res, next) => {
+  async (req, res, next) => {
     try {
       const body = req.body
       const user = await service.login(body)

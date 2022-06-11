@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const { PAYMENT_PLAN_TABLE, PaymentPlanSchema } = require('./../models/payment-plan.model')
 
@@ -10,4 +10,4 @@ module.exports = {
   async down (queryInterface) {
     await queryInterface.dropTable(PAYMENT_PLAN_TABLE)
   }
-};
+}

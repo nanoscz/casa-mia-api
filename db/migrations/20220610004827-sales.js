@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const { SALE_TABLE, SaleSchema } = require('./../models/sale.model')
 
@@ -10,4 +10,4 @@ module.exports = {
   async down (queryInterface) {
     await queryInterface.dropTable(SALE_TABLE)
   }
-};
+}

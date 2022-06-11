@@ -2,10 +2,43 @@ const boom = require('@hapi/boom')
 const { models } = require('../libs/sequelize')
 
 class PaymentPlanService {
-  async find () {
-    const rta = await models.PaymentPlan.findAll({
-      include: ['sale']
-    })
+  async find (query) {
+    const options = {
+      where: {},
+      include: []
+    }
+
+    const { paidOut } = query
+    if (paidOut) {
+      options.where = {
+        paidOut
+      }
+    }
+
+    const { lotId } = query
+    if (lotId) {
+      options.include = [
+        {
+          as: 'sale',
+          model: models.Sale,
+          attributes: ['lotId'],
+          required: true,
+          include: [
+            {
+              as: 'lot',
+              model: models.Lot,
+              attributes: ['id'],
+              required: true,
+              where: {
+                id: lotId
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+    const rta = await models.PaymentPlan.findAll(options)
     return rta
   }
 

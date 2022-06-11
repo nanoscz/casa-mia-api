@@ -13,25 +13,22 @@ const PaymentPlanSchema = {
   payday: {
     allowNull: false,
     type: DataTypes.DATE,
-    field: 'payday',
+    field: 'payday'
   },
   amount: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  saldo: {
     type: DataTypes.INTEGER,
     allowNull: false
   },
   paymentDate: {
     allowNull: false,
     type: DataTypes.DATE,
-    field: 'payment_date',
+    field: 'payment_date'
   },
-  status: {
+  paidOut: {
+    field: 'paid_out',
     allowNull: false,
-    type: DataTypes.ENUM('S', 'N'),
-    defaultValue: 'N'
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
   },
   saleId: {
     field: 'sale_id',

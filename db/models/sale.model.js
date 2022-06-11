@@ -81,15 +81,15 @@ const SaleSchema = {
     type: DataTypes.DATE,
     field: 'updated_at',
     defaultValue: Sequelize.NOW
-  },
+  }
 }
 
 class Sale extends Model {
   static associate (models) {
-    this.belongsTo(models.Seller, { as: 'seller'})
-    this.belongsTo(models.Customer, { as: 'customer'})
-    this.belongsTo(models.Lot, { as: 'lot'})
-    this.belongsTo(models.Modality, { as: 'modality'})
+    this.belongsTo(models.Seller, { as: 'seller' })
+    this.belongsTo(models.Customer, { as: 'customer' })
+    this.belongsTo(models.Lot, { as: 'lot' })
+    this.belongsTo(models.Modality, { as: 'modality' })
     this.hasOne(models.PaymentPlan, {
       as: 'sale',
       foreignKey: 'saleId'

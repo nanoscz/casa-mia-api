@@ -8,7 +8,9 @@ class LotService {
   }
 
   async findOne (id) {
-    const rta = await models.Lot.findByPk(id)
+    const rta = await models.Lot.findByPk(id, {
+      include: 'project'
+    })
     if (!rta) {
       throw boom.notFound('Lot not found')
     }

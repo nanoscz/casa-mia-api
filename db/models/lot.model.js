@@ -16,21 +16,21 @@ const LotSchema = {
   },
   uv: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.INTEGER
   },
   mz: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.INTEGER
   },
   lotNumber: {
     allowNull: false,
     field: 'lot_number',
     unique: true,
-    type: DataTypes.STRING
+    type: DataTypes.INTEGER
   },
   dimension: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.STRING(100)
   },
   price: {
     type: DataTypes.INTEGER,

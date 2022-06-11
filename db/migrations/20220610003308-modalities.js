@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const { MODALITY_TABLE, ModalitySchema } = require('./../models/modality.model')
 
@@ -10,4 +10,4 @@ module.exports = {
   async down (queryInterface) {
     await queryInterface.dropTable(MODALITY_TABLE)
   }
-};
+}

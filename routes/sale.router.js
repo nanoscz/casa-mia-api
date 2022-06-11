@@ -5,19 +5,22 @@ const validationHandler = require('../middlewares/validator.handler')
 const {
   getSaleSchema,
   createSaleSchema,
-  updateSaleSchema
+  updateSaleSchema,
+  querySaleSchame
 } = require('../schemas/sale.schema')
 
 const router = express.Router()
 const service = new SaleService()
 
-router.get('/', async (req, res, next) => {
-  try {
-    res.json(await service.find())
-  } catch (error) {
-    next(error)
-  }
-})
+router.get('/',
+  validationHandler(querySaleSchame, 'query'),
+  async (req, res, next) => {
+    try {
+      res.json(await service.find(req.query))
+    } catch (error) {
+      next(error)
+    }
+  })
 
 router.get('/:id',
   validationHandler(getSaleSchema, 'params'),

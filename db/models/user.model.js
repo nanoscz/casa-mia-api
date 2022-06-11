@@ -11,17 +11,12 @@ const UserSchema = {
   },
   email: {
     allowNull: false,
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(30),
     unique: true
   },
   password: {
     allowNull: false,
     type: DataTypes.STRING
-  },
-  role: {
-    allowNull: false,
-    type: DataTypes.STRING,
-    defaultValue: 'seller'
   },
   createdAt: {
     allowNull: false,

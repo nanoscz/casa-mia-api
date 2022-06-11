@@ -1,12 +1,12 @@
 const Joi = require('joi')
 
 const id = Joi.number().integer()
-const ubication = Joi.string().min(3).max(30)
-const uv = Joi.string().min(3).max(30)
-const mz = Joi.string().min(3).max(30)
-const lotNumber = Joi.number()
-const dimension = Joi.string().min(0).max(30)
-const price = Joi.number()
+const ubication = Joi.string().min(5).max(255)
+const uv = Joi.number().integer()
+const mz = Joi.number().integer()
+const lotNumber = Joi.number().integer()
+const dimension = Joi.string()
+const price = Joi.number().integer()
 const available = Joi.boolean()
 const projectId = Joi.number()
 

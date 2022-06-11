@@ -13,6 +13,10 @@ const ModalitySchema = {
     allowNull: false,
     type: DataTypes.STRING
   },
+  increase: {
+    allowNull: false,
+    type: DataTypes.INTEGER
+  },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,

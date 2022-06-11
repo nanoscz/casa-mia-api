@@ -13,16 +13,16 @@ const SellerSchema = {
   },
   name: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.STRING(50)
   },
   lastName: {
     allowNull: false,
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(50),
     field: 'last_name'
   },
   phone: {
     allowNull: true,
-    type: DataTypes.STRING
+    type: DataTypes.STRING(10)
   },
   createdAt: {
     allowNull: false,

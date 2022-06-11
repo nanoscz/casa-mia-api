@@ -22,7 +22,7 @@ const createSaleSchema = Joi.object({
   sellerId: sellerId.required(),
   customerId: customerId.required(),
   lotId: lotId.required(),
-  modalityId: modalityId.required(),
+  modalityId: modalityId.required()
 })
 
 const updateSaleSchema = Joi.object({

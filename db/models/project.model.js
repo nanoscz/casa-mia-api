@@ -11,6 +11,10 @@ const ProjectSchema = {
   },
   name: {
     allowNull: false,
+    type: DataTypes.STRING(30)
+  },
+  description: {
+    allowNull: true,
     type: DataTypes.STRING
   },
   createdAt: {
